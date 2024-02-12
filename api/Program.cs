@@ -1,3 +1,7 @@
+using application;
+using application.DataAccess;
+using MediatR;
+
 namespace api
 {
     public class Program
@@ -12,6 +16,8 @@ namespace api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddSingleton<IDataAccess, DataAccess>();
+            builder.Services.AddMediatR(typeof(ApplicationEntryPoint).Assembly);
 
             var app = builder.Build();
 
