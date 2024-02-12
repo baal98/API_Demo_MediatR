@@ -2,11 +2,11 @@
 using application.DataAccess;
 using application.Handlers;
 using application.Models;
+using MediatR;
 using Moq;
 
 namespace Tests
 {
-    // Test class for UpdatePersonHandler
     [TestFixture]
     public class UpdatePersonHandlerTests
     {
@@ -15,7 +15,8 @@ namespace Tests
         {
             // Arrange
             var mockDataAccess = new Mock<IDataAccess>();
-            var handler = new UpdatePersonHandler(mockDataAccess.Object);
+            var mockMediator = new Mock<IMediator>();
+            var handler = new UpdatePersonHandler(mockDataAccess.Object, mockMediator.Object);
             var command = new UpdatePersonCommand(1, "Jane", "Doe");
 
             mockDataAccess.Setup(m => m.UpdatePerson(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>()))

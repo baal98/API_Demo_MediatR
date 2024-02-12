@@ -2,11 +2,11 @@
 using application.DataAccess;
 using application.Handlers;
 using application.Models;
+using MediatR;
 using Moq;
 
 namespace Tests
 {
-    // Test class for InsertPersonHandler
     [TestFixture]
     public class InsertPersonHandlerTests
     {
@@ -15,7 +15,8 @@ namespace Tests
         {
             // Arrange
             var mockDataAccess = new Mock<IDataAccess>();
-            var handler = new InsertPersonHandler(mockDataAccess.Object);
+            var mockMediator = new Mock<IMediator>();
+            var handler = new InsertPersonHandler(mockDataAccess.Object, mockMediator.Object);
             var command = new InsertPersonCommand("John", "Doe");
             var expectedPerson = new PersonModel { FirstName = "John", LastName = "Doe" };
 

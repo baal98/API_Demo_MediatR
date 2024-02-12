@@ -2,11 +2,14 @@
 using application.DataAccess;
 using application.Handlers;
 using application.Models;
+using MediatR;
 using Moq;
+using NUnit.Framework;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Tests
 {
-    // Test class for DeletePersonHandler
     [TestFixture]
     public class DeletePersonHandlerTests
     {
@@ -15,7 +18,8 @@ namespace Tests
         {
             // Arrange
             var mockDataAccess = new Mock<IDataAccess>();
-            var handler = new DeletePersonHandler(mockDataAccess.Object);
+            var mockMediator = new Mock<IMediator>();
+            var handler = new DeletePersonHandler(mockDataAccess.Object, mockMediator.Object);
             var command = new DeletePersonCommand(1);
 
             mockDataAccess.Setup(m => m.DeletePerson(It.IsAny<int>()))
