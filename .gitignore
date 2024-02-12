@@ -1,2 +1,6 @@
 api/bin/
 api/obj/
+application/bin/
+application/obj/
+Test/bin/
+Test/obj/
