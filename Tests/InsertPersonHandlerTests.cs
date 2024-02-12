@@ -3,6 +3,7 @@ using application.DataAccess;
 using application.Handlers;
 using application.Models;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using Moq;
 
 namespace Tests
@@ -16,7 +17,8 @@ namespace Tests
             // Arrange
             var mockDataAccess = new Mock<IDataAccess>();
             var mockMediator = new Mock<IMediator>();
-            var handler = new InsertPersonHandler(mockDataAccess.Object, mockMediator.Object);
+            var logger = new Mock<ILogger<InsertPersonHandler>>();
+            var handler = new InsertPersonHandler(mockDataAccess.Object, mockMediator.Object, logger.Object);
             var command = new InsertPersonCommand("John", "Doe");
             var expectedPerson = new PersonModel { FirstName = "John", LastName = "Doe" };
 

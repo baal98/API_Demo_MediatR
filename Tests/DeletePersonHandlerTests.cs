@@ -3,6 +3,7 @@ using application.DataAccess;
 using application.Handlers;
 using application.Models;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using System.Threading;
@@ -19,7 +20,8 @@ namespace Tests
             // Arrange
             var mockDataAccess = new Mock<IDataAccess>();
             var mockMediator = new Mock<IMediator>();
-            var handler = new DeletePersonHandler(mockDataAccess.Object, mockMediator.Object);
+            var logger = new Mock<ILogger<DeletePersonHandler>>();
+            var handler = new DeletePersonHandler(mockDataAccess.Object, mockMediator.Object, logger.Object);
             var command = new DeletePersonCommand(1);
 
             mockDataAccess.Setup(m => m.DeletePerson(It.IsAny<int>()))

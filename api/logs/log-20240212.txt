@@ -1,0 +1,319 @@
+2024-02-12 15:21:00.691 +02:00 [INF] Starting web host
+2024-02-12 15:21:01.133 +02:00 [INF] Now listening on: https://localhost:7275
+2024-02-12 15:21:01.147 +02:00 [INF] Now listening on: http://localhost:5069
+2024-02-12 15:21:01.158 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-12 15:21:01.163 +02:00 [INF] Hosting environment: Development
+2024-02-12 15:21:01.167 +02:00 [INF] Content root path: C:\Exercises\WebBasic2022\ASP WEB Fundamentals 2023\Api_Demo_MediatR\API_Demo_MediatR\api\
+2024-02-12 15:21:02.998 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/index.html - -
+2024-02-12 15:21:03.553 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/index.html - - - 200 - text/html;charset=utf-8 570.5106ms
+2024-02-12 15:21:03.559 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - -
+2024-02-12 15:21:03.559 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - -
+2024-02-12 15:21:03.581 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 21.9340ms
+2024-02-12 15:21:03.605 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.2191ms
+2024-02-12 15:21:03.671 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - -
+2024-02-12 15:21:03.849 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 177.4473ms
+2024-02-12 15:21:37.626 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:7275/api/Person/1 application/json 56
+2024-02-12 15:21:37.641 +02:00 [INF] Executing endpoint 'api.Controllers.PersonController.Put (api)'
+2024-02-12 15:21:37.715 +02:00 [INF] Route matched with {action = "Put", controller = "Person"}. Executing controller action with signature System.Threading.Tasks.Task`1[application.Models.PersonModel] Put(Int32, application.Models.PersonModel) on controller api.Controllers.PersonController (api).
+2024-02-12 15:21:37.992 +02:00 [INF] Executing action method api.Controllers.PersonController.Put (api) - Validation state: "Valid"
+2024-02-12 15:21:38.326 +02:00 [INF] Executed action api.Controllers.PersonController.Put (api) in 595.02ms
+2024-02-12 15:21:38.336 +02:00 [INF] Executed endpoint 'api.Controllers.PersonController.Put (api)'
+2024-02-12 15:21:38.350 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Error constructing handler for request of type MediatR.IRequestHandler`2[application.Commands.UpdatePersonCommand,application.Models.PersonModel]. Register your handlers with the container. See the samples in GitHub for examples.
+ ---> System.InvalidOperationException: No service for type 'MediatR.IRequestHandler`2[application.Commands.UpdatePersonCommand,application.Models.PersonModel]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstance[T](ServiceFactory factory)
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   --- End of inner exception stack trace ---
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at api.Controllers.PersonController.Put(Int32 id, PersonModel value) in C:\Exercises\WebBasic2022\ASP WEB Fundamentals 2023\Api_Demo_MediatR\API_Demo_MediatR\api\Controllers\PersonController.cs:line 47
+   at lambda_method5(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-12 15:21:38.517 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:7275/api/Person/1 application/json 56 - 500 - text/plain;+charset=utf-8 890.5822ms
+2024-02-12 15:22:52.086 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/api/Person - -
+2024-02-12 15:22:52.116 +02:00 [INF] Executing endpoint 'api.Controllers.PersonController.Get (api)'
+2024-02-12 15:22:52.131 +02:00 [INF] Route matched with {action = "Get", controller = "Person"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[application.Models.PersonModel]] Get() on controller api.Controllers.PersonController (api).
+2024-02-12 15:22:52.155 +02:00 [INF] Executing action method api.Controllers.PersonController.Get (api) - Validation state: "Valid"
+2024-02-12 15:22:52.290 +02:00 [INF] Executed action api.Controllers.PersonController.Get (api) in 153.8933ms
+2024-02-12 15:22:52.296 +02:00 [INF] Executed endpoint 'api.Controllers.PersonController.Get (api)'
+2024-02-12 15:22:52.303 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Error constructing handler for request of type MediatR.IRequestHandler`2[application.Queries.GetPersonListQuery,System.Collections.Generic.List`1[application.Models.PersonModel]]. Register your handlers with the container. See the samples in GitHub for examples.
+ ---> System.InvalidOperationException: No service for type 'MediatR.IRequestHandler`2[application.Queries.GetPersonListQuery,System.Collections.Generic.List`1[application.Models.PersonModel]]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstance[T](ServiceFactory factory)
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   --- End of inner exception stack trace ---
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at api.Controllers.PersonController.Get() in C:\Exercises\WebBasic2022\ASP WEB Fundamentals 2023\Api_Demo_MediatR\API_Demo_MediatR\api\Controllers\PersonController.cs:line 26
+   at lambda_method13(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-12 15:22:52.326 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/api/Person - - - 500 - text/plain;+charset=utf-8 239.8330ms
+2024-02-12 15:23:53.858 +02:00 [INF] Starting web host
+2024-02-12 15:23:54.317 +02:00 [INF] Now listening on: https://localhost:7275
+2024-02-12 15:23:54.331 +02:00 [INF] Now listening on: http://localhost:5069
+2024-02-12 15:23:54.345 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-12 15:23:54.351 +02:00 [INF] Hosting environment: Development
+2024-02-12 15:23:54.355 +02:00 [INF] Content root path: C:\Exercises\WebBasic2022\ASP WEB Fundamentals 2023\Api_Demo_MediatR\API_Demo_MediatR\api\
+2024-02-12 15:23:57.133 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/index.html - -
+2024-02-12 15:23:57.677 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/index.html - - - 200 - text/html;charset=utf-8 548.0094ms
+2024-02-12 15:23:57.685 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - -
+2024-02-12 15:23:57.685 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - -
+2024-02-12 15:23:57.724 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 38.6426ms
+2024-02-12 15:23:57.737 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.8595ms
+2024-02-12 15:23:57.814 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - -
+2024-02-12 15:23:58.024 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 210.8553ms
+2024-02-12 15:24:23.979 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:7275/api/Person/1 application/json 63
+2024-02-12 15:24:24.003 +02:00 [INF] Executing endpoint 'api.Controllers.PersonController.Put (api)'
+2024-02-12 15:24:24.076 +02:00 [INF] Route matched with {action = "Put", controller = "Person"}. Executing controller action with signature System.Threading.Tasks.Task`1[application.Models.PersonModel] Put(Int32, application.Models.PersonModel) on controller api.Controllers.PersonController (api).
+2024-02-12 15:24:24.280 +02:00 [INF] Executing action method api.Controllers.PersonController.Put (api) - Validation state: "Valid"
+2024-02-12 15:24:24.547 +02:00 [INF] Executed action api.Controllers.PersonController.Put (api) in 453.5723ms
+2024-02-12 15:24:24.557 +02:00 [INF] Executed endpoint 'api.Controllers.PersonController.Put (api)'
+2024-02-12 15:24:24.569 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Error constructing handler for request of type MediatR.IRequestHandler`2[application.Commands.UpdatePersonCommand,application.Models.PersonModel]. Register your handlers with the container. See the samples in GitHub for examples.
+ ---> System.InvalidOperationException: No service for type 'MediatR.IRequestHandler`2[application.Commands.UpdatePersonCommand,application.Models.PersonModel]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstance[T](ServiceFactory factory)
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   --- End of inner exception stack trace ---
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at api.Controllers.PersonController.Put(Int32 id, PersonModel value) in C:\Exercises\WebBasic2022\ASP WEB Fundamentals 2023\Api_Demo_MediatR\API_Demo_MediatR\api\Controllers\PersonController.cs:line 47
+   at lambda_method5(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-12 15:24:24.657 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:7275/api/Person/1 application/json 63 - 500 - text/plain;+charset=utf-8 678.2045ms
+2024-02-12 15:25:37.279 +02:00 [INF] Now listening on: https://localhost:7275
+2024-02-12 15:25:37.359 +02:00 [INF] Now listening on: http://localhost:5069
+2024-02-12 15:25:37.370 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-12 15:25:37.376 +02:00 [INF] Hosting environment: Development
+2024-02-12 15:25:37.380 +02:00 [INF] Content root path: C:\Exercises\WebBasic2022\ASP WEB Fundamentals 2023\Api_Demo_MediatR\API_Demo_MediatR\api\
+2024-02-12 15:25:39.502 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/index.html - -
+2024-02-12 15:25:40.162 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - -
+2024-02-12 15:25:40.166 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - -
+2024-02-12 15:25:40.166 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/index.html - - - 200 - text/html;charset=utf-8 670.8661ms
+2024-02-12 15:25:40.190 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 28.8598ms
+2024-02-12 15:25:40.211 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.1213ms
+2024-02-12 15:25:40.301 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - -
+2024-02-12 15:25:40.494 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 193.4129ms
+2024-02-12 15:25:52.471 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:7275/api/Person/1 application/json 57
+2024-02-12 15:25:52.490 +02:00 [INF] Executing endpoint 'api.Controllers.PersonController.Put (api)'
+2024-02-12 15:25:52.579 +02:00 [INF] Route matched with {action = "Put", controller = "Person"}. Executing controller action with signature System.Threading.Tasks.Task`1[application.Models.PersonModel] Put(Int32, application.Models.PersonModel) on controller api.Controllers.PersonController (api).
+2024-02-12 15:25:52.837 +02:00 [INF] Executing action method api.Controllers.PersonController.Put (api) - Validation state: "Valid"
+2024-02-12 15:25:53.123 +02:00 [INF] Executed action api.Controllers.PersonController.Put (api) in 522.0594ms
+2024-02-12 15:25:53.136 +02:00 [INF] Executed endpoint 'api.Controllers.PersonController.Put (api)'
+2024-02-12 15:25:53.150 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Error constructing handler for request of type MediatR.IRequestHandler`2[application.Commands.UpdatePersonCommand,application.Models.PersonModel]. Register your handlers with the container. See the samples in GitHub for examples.
+ ---> System.InvalidOperationException: No service for type 'MediatR.IRequestHandler`2[application.Commands.UpdatePersonCommand,application.Models.PersonModel]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstance[T](ServiceFactory factory)
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   --- End of inner exception stack trace ---
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at api.Controllers.PersonController.Put(Int32 id, PersonModel value) in C:\Exercises\WebBasic2022\ASP WEB Fundamentals 2023\Api_Demo_MediatR\API_Demo_MediatR\api\Controllers\PersonController.cs:line 47
+   at lambda_method5(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-12 15:25:53.266 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:7275/api/Person/1 application/json 57 - 500 - text/plain;+charset=utf-8 796.0165ms
+2024-02-12 15:27:42.573 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/index.html - -
+2024-02-12 15:27:42.652 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/index.html - - - 200 - text/html;charset=utf-8 78.8388ms
+2024-02-12 15:27:42.667 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - -
+2024-02-12 15:27:42.672 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - -
+2024-02-12 15:27:42.678 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 11.8359ms
+2024-02-12 15:27:42.709 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 36.1417ms
+2024-02-12 15:27:42.837 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - -
+2024-02-12 15:27:42.854 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 17.0764ms
+2024-02-12 15:28:05.250 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/api/Person - -
+2024-02-12 15:28:05.281 +02:00 [INF] Executing endpoint 'api.Controllers.PersonController.Get (api)'
+2024-02-12 15:28:05.298 +02:00 [INF] Route matched with {action = "Get", controller = "Person"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[application.Models.PersonModel]] Get() on controller api.Controllers.PersonController (api).
+2024-02-12 15:28:05.327 +02:00 [INF] Executing action method api.Controllers.PersonController.Get (api) - Validation state: "Valid"
+2024-02-12 15:28:05.490 +02:00 [INF] Executed action api.Controllers.PersonController.Get (api) in 186.0371ms
+2024-02-12 15:28:05.496 +02:00 [INF] Executed endpoint 'api.Controllers.PersonController.Get (api)'
+2024-02-12 15:28:05.503 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Error constructing handler for request of type MediatR.IRequestHandler`2[application.Queries.GetPersonListQuery,System.Collections.Generic.List`1[application.Models.PersonModel]]. Register your handlers with the container. See the samples in GitHub for examples.
+ ---> System.InvalidOperationException: No service for type 'MediatR.IRequestHandler`2[application.Queries.GetPersonListQuery,System.Collections.Generic.List`1[application.Models.PersonModel]]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at MediatR.ServiceFactoryExtensions.GetInstance[T](ServiceFactory factory)
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   --- End of inner exception stack trace ---
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at api.Controllers.PersonController.Get()
+   at lambda_method13(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-02-12 15:28:05.528 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/api/Person - - - 500 - text/plain;+charset=utf-8 278.0376ms
+2024-02-12 15:28:22.129 +02:00 [INF] Now listening on: https://localhost:7275
+2024-02-12 15:28:22.194 +02:00 [INF] Now listening on: http://localhost:5069
+2024-02-12 15:28:22.205 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-12 15:28:22.210 +02:00 [INF] Hosting environment: Development
+2024-02-12 15:28:22.213 +02:00 [INF] Content root path: C:\Exercises\WebBasic2022\ASP WEB Fundamentals 2023\Api_Demo_MediatR\API_Demo_MediatR\api\
+2024-02-12 15:28:24.024 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/index.html - -
+2024-02-12 15:28:24.596 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - -
+2024-02-12 15:28:24.600 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - -
+2024-02-12 15:28:24.607 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/index.html - - - 200 - text/html;charset=utf-8 581.9533ms
+2024-02-12 15:28:24.612 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 15.6749ms
+2024-02-12 15:28:24.651 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.1859ms
+2024-02-12 15:28:24.712 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - -
+2024-02-12 15:28:24.890 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 177.6744ms
+2024-02-12 15:28:31.252 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/api/Person - -
+2024-02-12 15:28:31.265 +02:00 [INF] Executing endpoint 'api.Controllers.PersonController.Get (api)'
+2024-02-12 15:28:31.315 +02:00 [INF] Route matched with {action = "Get", controller = "Person"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[application.Models.PersonModel]] Get() on controller api.Controllers.PersonController (api).
+2024-02-12 15:28:31.406 +02:00 [INF] Executing action method api.Controllers.PersonController.Get (api) - Validation state: "Valid"
+2024-02-12 15:28:31.457 +02:00 [INF] Executed action method api.Controllers.PersonController.Get (api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 31.5708ms.
+2024-02-12 15:28:31.480 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[application.Models.PersonModel, application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-02-12 15:28:31.513 +02:00 [INF] Executed action api.Controllers.PersonController.Get (api) in 184.2116ms
+2024-02-12 15:28:31.519 +02:00 [INF] Executed endpoint 'api.Controllers.PersonController.Get (api)'
+2024-02-12 15:28:31.524 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/api/Person - - - 200 - application/json;+charset=utf-8 272.4836ms
+2024-02-12 15:29:08.203 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:7275/api/Person/1 application/json 61
+2024-02-12 15:29:08.225 +02:00 [INF] Executing endpoint 'api.Controllers.PersonController.Put (api)'
+2024-02-12 15:29:08.263 +02:00 [INF] Route matched with {action = "Put", controller = "Person"}. Executing controller action with signature System.Threading.Tasks.Task`1[application.Models.PersonModel] Put(Int32, application.Models.PersonModel) on controller api.Controllers.PersonController (api).
+2024-02-12 15:29:08.405 +02:00 [INF] Executing action method api.Controllers.PersonController.Put (api) - Validation state: "Valid"
+2024-02-12 15:29:08.416 +02:00 [INF] Person updated: Baal Bester 
+2024-02-12 15:32:43.205 +02:00 [INF] Executed action method api.Controllers.PersonController.Put (api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 214795.2305ms.
+2024-02-12 15:32:43.211 +02:00 [INF] Executing ObjectResult, writing value of type 'application.Models.PersonModel'.
+2024-02-12 15:32:45.728 +02:00 [INF] Executed action api.Controllers.PersonController.Put (api) in 217458.4764ms
+2024-02-12 15:32:45.749 +02:00 [INF] Executed endpoint 'api.Controllers.PersonController.Put (api)'
+2024-02-12 15:32:45.767 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:7275/api/Person/1 application/json 61 - 200 - application/json;+charset=utf-8 217563.5731ms
+2024-02-12 16:11:17.541 +02:00 [INF] Now listening on: https://localhost:7275
+2024-02-12 16:11:17.618 +02:00 [INF] Now listening on: http://localhost:5069
+2024-02-12 16:11:17.630 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-12 16:11:17.636 +02:00 [INF] Hosting environment: Development
+2024-02-12 16:11:17.641 +02:00 [INF] Content root path: C:\Exercises\WebBasic2022\ASP WEB Fundamentals 2023\Api_Demo_MediatR\API_Demo_MediatR\api\
+2024-02-12 16:11:19.490 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/index.html - -
+2024-02-12 16:11:20.131 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_vs/browserLink - -
+2024-02-12 16:11:20.131 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - -
+2024-02-12 16:11:20.160 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 27.6301ms
+2024-02-12 16:11:20.160 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/index.html - - - 200 - text/html;charset=utf-8 680.0510ms
+2024-02-12 16:11:20.180 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 48.9204ms
+2024-02-12 16:11:20.243 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - -
+2024-02-12 16:11:20.438 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7275/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 194.5911ms
+2024-02-12 16:11:27.770 +02:00 [INF] Request starting HTTP/2 DELETE https://localhost:7275/api/Person/1 - -
+2024-02-12 16:11:27.791 +02:00 [INF] Executing endpoint 'api.Controllers.PersonController.Delete (api)'
+2024-02-12 16:11:27.878 +02:00 [INF] Route matched with {action = "Delete", controller = "Person"}. Executing controller action with signature System.Threading.Tasks.Task`1[application.Models.PersonModel] Delete(Int32) on controller api.Controllers.PersonController (api).
+2024-02-12 16:11:28.033 +02:00 [INF] Executing action method api.Controllers.PersonController.Delete (api) - Validation state: "Valid"
+2024-02-12 16:11:28.095 +02:00 [INF] Person deleted: Dimo Todorov
+2024-02-12 16:11:28.123 +02:00 [INF] Executed action method api.Controllers.PersonController.Delete (api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 62.6379ms.
+2024-02-12 16:11:28.158 +02:00 [INF] Executing ObjectResult, writing value of type 'application.Models.PersonModel'.
+2024-02-12 16:11:28.194 +02:00 [INF] Executed action api.Controllers.PersonController.Delete (api) in 298.9259ms
+2024-02-12 16:11:28.202 +02:00 [INF] Executed endpoint 'api.Controllers.PersonController.Delete (api)'
+2024-02-12 16:11:28.208 +02:00 [INF] Request finished HTTP/2 DELETE https://localhost:7275/api/Person/1 - - - 200 - application/json;+charset=utf-8 438.2393ms
+2024-02-12 16:12:06.143 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7275/api/Person application/json 61
+2024-02-12 16:12:06.166 +02:00 [INF] Executing endpoint 'api.Controllers.PersonController.Post (api)'
+2024-02-12 16:12:06.176 +02:00 [INF] Route matched with {action = "Post", controller = "Person"}. Executing controller action with signature System.Threading.Tasks.Task`1[application.Models.PersonModel] Post(application.Models.PersonModel) on controller api.Controllers.PersonController (api).
+2024-02-12 16:12:06.274 +02:00 [INF] Executing action method api.Controllers.PersonController.Post (api) - Validation state: "Valid"
+2024-02-12 16:12:06.303 +02:00 [INF] New person created: Dimo Todorov
+2024-02-12 16:12:06.322 +02:00 [INF] Executed action method api.Controllers.PersonController.Post (api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 43.0747ms.
+2024-02-12 16:12:06.336 +02:00 [INF] Executing ObjectResult, writing value of type 'application.Models.PersonModel'.
+2024-02-12 16:12:06.343 +02:00 [INF] Executed action api.Controllers.PersonController.Post (api) in 158.9257ms
+2024-02-12 16:12:06.351 +02:00 [INF] Executed endpoint 'api.Controllers.PersonController.Post (api)'
+2024-02-12 16:12:06.358 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7275/api/Person application/json 61 - 200 - application/json;+charset=utf-8 214.9716ms
+2024-02-12 16:12:32.585 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:7275/api/Person/3 application/json 60
+2024-02-12 16:12:32.616 +02:00 [INF] Executing endpoint 'api.Controllers.PersonController.Put (api)'
+2024-02-12 16:12:32.626 +02:00 [INF] Route matched with {action = "Put", controller = "Person"}. Executing controller action with signature System.Threading.Tasks.Task`1[application.Models.PersonModel] Put(Int32, application.Models.PersonModel) on controller api.Controllers.PersonController (api).
+2024-02-12 16:12:32.654 +02:00 [INF] Executing action method api.Controllers.PersonController.Put (api) - Validation state: "Valid"
+2024-02-12 16:12:32.665 +02:00 [INF] Person updated: Baal Bester
+2024-02-12 16:12:39.618 +02:00 [INF] Executed action method api.Controllers.PersonController.Put (api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 6958.463ms.
+2024-02-12 16:12:39.623 +02:00 [INF] Executing ObjectResult, writing value of type 'application.Models.PersonModel'.
+2024-02-12 16:12:39.627 +02:00 [INF] Executed action api.Controllers.PersonController.Put (api) in 6993.9514ms
+2024-02-12 16:12:39.632 +02:00 [INF] Executed endpoint 'api.Controllers.PersonController.Put (api)'
+2024-02-12 16:12:39.642 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:7275/api/Person/3 application/json 60 - 200 - application/json;+charset=utf-8 7057.4932ms

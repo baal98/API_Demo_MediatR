@@ -1,7 +1,7 @@
 ﻿using application.Notification;
 using MediatR;
 
-namespace application.Handlers
+namespace application.Handlers.NotificationHandlers
 {
     public class PersonUpdatedNotificationHandler : INotificationHandler<PersonUpdatedNotification>
     {

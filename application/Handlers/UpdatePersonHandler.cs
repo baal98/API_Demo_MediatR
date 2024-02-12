@@ -3,6 +3,7 @@ using application.DataAccess;
 using application.Models;
 using application.Notification;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace application.Handlers
 {
@@ -10,11 +11,13 @@ namespace application.Handlers
     {
         private readonly IDataAccess _data;
         private readonly IMediator _mediator;
+        private readonly ILogger<UpdatePersonHandler> _logger;
 
-        public UpdatePersonHandler(IDataAccess data, IMediator mediator)
+        public UpdatePersonHandler(IDataAccess data, IMediator mediator, ILogger<UpdatePersonHandler> logger)
         {
             _data = data;
             _mediator = mediator;
+            _logger = logger;
         }
 
         public async Task<PersonModel> Handle(UpdatePersonCommand request, CancellationToken cancellationToken)
@@ -23,6 +26,7 @@ namespace application.Handlers
 
             if (person != null)
             {
+                _logger.LogInformation($"Person updated: {person.FirstName} {person.LastName}");
                 await _mediator.Publish(new PersonUpdatedNotification { Person = person }, cancellationToken);
             }
 
