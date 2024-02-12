@@ -1,4 +1,4 @@
-# ProjectName
+# MediatRClientAPI
 
 ## Project Description
 This repository contains an ASP.NET Core Web API that utilizes MediatR for implementing the CQRS pattern. It's integrated with GitHub Actions for continuous integration and deployment (CI/CD).
